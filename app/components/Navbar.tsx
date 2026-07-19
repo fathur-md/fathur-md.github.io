@@ -44,7 +44,7 @@ const Navbar = () => {
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className="text-foreground"
+            className="text-foreground hover:text-primary"
           >
             <strong>Fathurrahman Muhammad</strong>
           </Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className="hover:text-foreground/80 transition-colors"
+                className="hover:text-primary text-foreground/80 transition-colors"
               >
                 {link.name}
               </Link>
