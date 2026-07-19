@@ -27,9 +27,9 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="border-border/50 flex flex-col items-center justify-center border-b-8 px-6 py-20 text-center">
+    <section className="border-border/50 flex flex-col items-center justify-center border-b-8 px-6 py-8 pb-16 text-center md:py-20">
       <motion.h1
-        className="font-borel mt-10 flex justify-center text-6xl font-medium tracking-tighter text-cyan-600 md:text-8xl"
+        className="font-borel flex justify-center text-6xl font-medium tracking-tighter text-cyan-600 md:mt-10 md:text-8xl"
         variants={container}
         initial="hidden"
         animate="show"

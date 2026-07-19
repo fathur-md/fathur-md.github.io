@@ -1,19 +1,19 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center py-20 px-6 text-center">
-      <h1 className="text-[4rem] md:text-[6rem] font-bold tracking-tighter leading-none text-primary mb-2">
+    <div className="flex flex-col items-center justify-center px-6 py-20 text-center">
+      <h1 className="text-primary mb-2 text-[4rem] leading-none font-bold tracking-tighter md:text-[6rem]">
         404
       </h1>
 
-      <p className="text-xl md:text-2xl font-medium tracking-tight text-muted mb-10">
+      <p className="text-muted mb-10 text-xl font-medium tracking-tight md:text-2xl">
         Halaman yang Anda cari tidak ditemukan.
       </p>
 
       <Link
         href="/"
-        className="text-primary font-semibold hover:text-primary-hover transition-colors text-[17px] flex items-center gap-1.5 group"
+        className="text-primary hover:text-primary-hover group flex items-center gap-1.5 text-[17px] font-semibold transition-colors"
       >
         Kembali ke beranda
         <span

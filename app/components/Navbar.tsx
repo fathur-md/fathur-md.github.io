@@ -39,7 +39,7 @@ const Navbar = () => {
     <>
       {/* Z-50 agar Header selalu di atas */}
       <header className="bg-background/80 border-border sticky top-0 z-50 w-full border-b backdrop-blur-xl transition-colors">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 text-sm">
+        <div className="mx-auto flex h-12 max-w-5xl items-center justify-between px-6 text-sm">
           {/* Logo tidak lagi disembunyikan */}
           <Link
             href="/"
