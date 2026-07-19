@@ -1,5 +1,13 @@
+import { Nunito } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-nunito",
+  adjustFontFallback: false
+});
 
 export const metadata: Metadata = {
   title: "Fathurrahman Muhammad",
@@ -21,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`${nunito.variable} h-full antialiased`}>
       <body className="min-h-dvh flex flex-col">
         <main className="grow">{children}</main>
       </body>
