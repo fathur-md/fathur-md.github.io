@@ -1,11 +1,28 @@
-import { Nunito } from "next/font/google";
+import { Nunito, Borel, Inter } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+  adjustFontFallback: false
+});
 
 const nunito = Nunito({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-nunito",
+  adjustFontFallback: false
+});
+
+const borel = Borel({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  variable: "--font-borel",
   adjustFontFallback: false
 });
 
@@ -18,8 +35,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#B9C1E1" },
-    { media: "(prefers-color-scheme: dark)", color: "#161B2D" }
+    { media: "(prefers-color-scheme: light)", color: "#547E93" },
+    { media: "(prefers-color-scheme: dark)", color: "#16181A" }
   ]
 };
 
@@ -29,9 +46,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nunito.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${nunito.variable} ${borel.variable} h-full`}
+    >
       <body className="min-h-dvh flex flex-col">
-        <main className="grow">{children}</main>
+        <Navbar />
+        {/* pt-20 menjaga agar konten tidak tertutup Navbar yang melayang */}
+        <main className="grow flex flex-col">{children}</main>
+        <Footer />
       </body>
     </html>
   );
