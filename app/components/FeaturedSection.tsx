@@ -91,15 +91,16 @@ const FeaturedSection = () => {
           engineering and agentic coding workflows.
         </p>
         <br />
-        <Image
-          src="/terminal.png"
-          alt="Terminal"
-          width={1400}
-          height={0}
-          className="rounded-xl object-contain"
-        />
+        <div className="relative aspect-video border">
+          <Image
+            src="/terminal.png"
+            alt="Terminal"
+            fill
+            className="h-auto w-full rounded-xl object-contain"
+          />
+        </div>
       </div>
-      <div className="px-5 py-12 text-center">
+      <div className="border-border border-b-8 px-5 py-32 text-center">
         <span className="text-primary mb-4 text-sm font-bold tracking-widest uppercase">
           Academic Milestone
         </span>
