@@ -27,7 +27,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="bg-surface flex min-h-dvh flex-col items-center justify-center px-6 text-center">
+    <section className="bg-background flex min-h-dvh flex-col items-center justify-center px-6 text-center">
       <div className="-mt-20">
         <motion.h1
           className="font-borel flex justify-center text-6xl font-medium tracking-tighter text-cyan-600 md:mt-10 md:text-8xl"
@@ -37,7 +37,7 @@ export default function HeroSection() {
         >
           {letters.map((char, index) => (
             <motion.span
-              key={index}
+              key={`${char}-${index}`}
               variants={item}
               className="inline-block pt-24 pb-2 leading-0"
             >

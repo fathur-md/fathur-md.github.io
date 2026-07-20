@@ -2,12 +2,12 @@
 import { AnimatePresence, motion } from 'motion/react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { MenuIcon, CloseIcon } from './Icons';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navLinks = [
     { name: 'About', href: '/about' },
-    { name: 'Palette', href: '/palette' }, // delete later, for design system testing
     { name: 'GitHub', href: 'https://github.com/fathur-md' },
   ];
 
@@ -67,42 +67,22 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {/* Ikon Hamburger */}
-            <svg
+            <MenuIcon
               className={`absolute h-6 w-6 transition-all duration-300 ease-in-out ${
                 isOpen
                   ? 'scale-50 rotate-90 opacity-0'
                   : 'scale-100 rotate-0 opacity-100'
               }`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            />
 
             {/* Ikon Close (X) */}
-            <svg
+            <CloseIcon
               className={`absolute h-6 w-6 transition-all duration-300 ease-in-out ${
                 isOpen
                   ? 'scale-100 rotate-0 opacity-100'
                   : 'scale-50 -rotate-90 opacity-0'
               }`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            />
           </button>
         </div>
       </header>

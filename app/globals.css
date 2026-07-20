@@ -14,20 +14,6 @@
   --primary-fg: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #16181a;
-    --surface: #202327;
-    --surface-hover: #2a2d33;
-    --border: #33373e;
-    --foreground: #e2e8f0;
-    --muted: #8492a6;
-    --primary: #6da2bd;
-    --primary-hover: #85b5ce;
-    --primary-fg: #000000;
-  }
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
@@ -45,6 +31,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

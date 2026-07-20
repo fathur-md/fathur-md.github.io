@@ -6,7 +6,7 @@ const FloatingBadge = () => {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"></span>
           <span className="relative inline-flex h-3 w-3 rounded-full bg-amber-500"></span>
         </span>
-        <span className="text-xs font-medium tracking-wide text-amber-600 sm:text-sm dark:text-amber-400">
+        <span className="text-xs font-medium tracking-wide text-amber-600 sm:text-sm">
           Under Development
         </span>
       </div>

@@ -4,7 +4,6 @@ type SwatchToken = {
   token: string;
   role: string;
   lightHex: string;
-  darkHex: string;
   cssVar: string;
   group: string;
 };
@@ -27,7 +26,6 @@ const tokens: SwatchToken[] = [
     token: '--background',
     role: 'Latar halaman',
     lightHex: '#F7F8FB',
-    darkHex: '#16181A',
     cssVar: 'var(--background)',
     group: 'Layout',
   },
@@ -36,7 +34,6 @@ const tokens: SwatchToken[] = [
     token: '--surface',
     role: 'Card / panel / modal',
     lightHex: '#EEF0F6',
-    darkHex: '#202327',
     cssVar: 'var(--surface)',
     group: 'Layout',
   },
@@ -45,7 +42,6 @@ const tokens: SwatchToken[] = [
     token: '--surface-hover',
     role: 'Card hover state',
     lightHex: '#E4E7F0',
-    darkHex: '#2A2D33',
     cssVar: 'var(--surface-hover)',
     group: 'Layout',
   },
@@ -54,7 +50,6 @@ const tokens: SwatchToken[] = [
     token: '--border',
     role: 'Garis tepi / divider',
     lightHex: '#DDE0EA',
-    darkHex: '#33373E',
     cssVar: 'var(--border)',
     group: 'Layout',
   },
@@ -64,7 +59,6 @@ const tokens: SwatchToken[] = [
     token: '--foreground',
     role: 'Teks utama / heading',
     lightHex: '#1A1C23',
-    darkHex: '#E2E8F0',
     cssVar: 'var(--foreground)',
     group: 'Typography',
   },
@@ -73,7 +67,6 @@ const tokens: SwatchToken[] = [
     token: '--muted',
     role: 'Teks pendukung',
     lightHex: '#6B7280',
-    darkHex: '#8492A6',
     cssVar: 'var(--muted)',
     group: 'Typography',
   },
@@ -83,7 +76,6 @@ const tokens: SwatchToken[] = [
     token: '--primary',
     role: 'Aksen utama / CTA',
     lightHex: '#547E93',
-    darkHex: '#6DA2BD',
     cssVar: 'var(--primary)',
     group: 'Primary',
   },
@@ -92,7 +84,6 @@ const tokens: SwatchToken[] = [
     token: '--primary-hover',
     role: 'Hover tombol',
     lightHex: '#3F6175',
-    darkHex: '#85B5CE',
     cssVar: 'var(--primary-hover)',
     group: 'Primary',
   },
@@ -101,7 +92,6 @@ const tokens: SwatchToken[] = [
     token: '--primary-fg',
     role: 'Teks di atas primary',
     lightHex: '#FFFFFF',
-    darkHex: '#090C10',
     cssVar: 'var(--primary-fg)',
     group: 'Primary',
   },
@@ -110,7 +100,6 @@ const tokens: SwatchToken[] = [
     token: '--ring',
     role: 'Focus ring input',
     lightHex: '#547E93',
-    darkHex: '#6DA2BD',
     cssVar: 'var(--ring)',
     group: 'Primary',
   },
@@ -351,15 +340,6 @@ export default function PalettePage() {
                             }}
                           >
                             ☀ {t.lightHex}
-                          </span>
-                          <span
-                            className="font-mono"
-                            style={{
-                              color: 'var(--primary)',
-                              fontSize: '0.62rem',
-                            }}
-                          >
-                            🌙 {t.darkHex}
                           </span>
                         </div>
                       </div>

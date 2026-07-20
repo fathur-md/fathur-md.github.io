@@ -35,10 +35,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#547E93' },
-    { media: '(prefers-color-scheme: dark)', color: '#16181A' },
-  ],
+  themeColor: '#547E93',
 };
 
 export default function RootLayout({
@@ -49,6 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${nunito.variable} ${borel.variable} h-full`}
     >
       <body className="flex min-h-dvh flex-col">
