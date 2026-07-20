@@ -7,10 +7,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navLinks = [
     { name: 'About', href: '/about' },
-    { name: 'Palette', href: '/palette' },
+    { name: 'Palette', href: '/palette' }, // delete later, for design system testing
+    { name: 'GitHub', href: 'https://github.com/fathur-md' },
   ];
 
-  // Efek untuk mengunci scroll saat menu HP terbuka
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -38,23 +38,23 @@ const Navbar = () => {
   return (
     <>
       {/* Z-50 agar Header selalu di atas */}
-      <header className="bg-background/80 border-border sticky top-0 z-50 w-full border-b backdrop-blur-xl transition-colors">
+      <header className="bg-background/50 border-border fixed top-0 z-50 w-full border-b backdrop-blur-xl transition-colors">
         <div className="mx-auto flex h-12 max-w-5xl items-center justify-between px-6 text-sm">
           {/* Logo tidak lagi disembunyikan */}
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className="text-foreground hover:text-primary"
+            className="text-foreground hover:text-primary font-normal"
           >
-            <strong>Fathurrahman Muhammad</strong>
+            Fathurrahman Muhammad
           </Link>
 
-          <nav className="hidden space-x-6 font-medium md:flex">
+          <nav className="hidden space-x-6 md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="hover:text-primary text-foreground/80 transition-colors"
+                className="hover:text-primary text-foreground/80 font-normal transition-colors"
               >
                 {link.name}
               </Link>
@@ -111,7 +111,7 @@ const Navbar = () => {
         {isOpen && (
           <motion.div
             // Z-40 agar berada di bawah Header. inset-0 menuhi layar. pt-24 mendorong konten ke bawah Header.
-            className="bg-background/95 fixed inset-0 z-40 pt-24 backdrop-blur-xl md:hidden"
+            className="bg-background/95 fixed inset-x-0 top-12 bottom-0 z-40 pt-24 backdrop-blur-xl md:hidden"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
