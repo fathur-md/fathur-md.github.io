@@ -43,7 +43,7 @@ html {
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--primary-fg);
   color: var(--foreground);
   font-family:
     var(--font-sans),

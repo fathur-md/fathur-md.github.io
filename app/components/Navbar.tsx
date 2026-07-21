@@ -6,10 +6,7 @@ import { MenuIcon, CloseIcon } from './Icons';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navLinks = [
-    { name: 'About', href: '/about' },
-    { name: 'GitHub', href: 'https://github.com/fathur-md' },
-  ];
+  const navLinks = [{ name: 'GitHub', href: 'https://github.com/fathur-md' }];
 
   useEffect(() => {
     if (isOpen) {
@@ -37,10 +34,8 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Z-50 agar Header selalu di atas */}
-      <header className="bg-background/50 border-border fixed top-0 z-50 w-full border-b backdrop-blur-xl transition-colors">
+      <header className="bg-background/50 border-border sticky top-0 z-50 w-full border-b backdrop-blur-xl transition-colors">
         <div className="mx-auto flex h-12 max-w-5xl items-center justify-between px-6 text-sm">
-          {/* Logo tidak lagi disembunyikan */}
           <Link
             href="/"
             onClick={() => setIsOpen(false)}

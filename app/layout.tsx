@@ -30,6 +30,9 @@ const borel = Borel({
 export const metadata: Metadata = {
   title: 'Fathurrahman Muhammad',
   description: 'My academic web',
+  icons: {
+    icon: '/icons/icon.png',
+  },
 };
 
 export const viewport: Viewport = {
@@ -51,8 +54,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-dvh flex-col">
         <Navbar />
-        {/* pt-20 menjaga agar konten tidak tertutup Navbar yang melayang */}
-        <main className="flex min-h-dvh grow flex-col">{children}</main>
+        <main className="flex grow flex-col">{children}</main>
         <Footer />
         <FloatingBadge />
       </body>
