@@ -19,8 +19,7 @@ export default async function RepositoryGrid() {
   if (!res.ok) {
     return <div className="text-red-500">Failed to load repositories.</div>;
   }
-
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  
   const raw: GithubRepo[] = await res.json();
   const repos = raw.filter((repo) => repo.fork === false);
 
