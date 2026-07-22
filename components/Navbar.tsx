@@ -1,36 +1,28 @@
 'use client';
 import { AnimatePresence, motion } from 'motion/react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { MenuIcon, CloseIcon } from './Icons';
+import { useScrollLock } from '@/hooks/use-scroll-lock';
+import { siteConfig } from '@/config/site';
+
+const wadahTautan = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const animasiTautan = {
+  hidden: { opacity: 0, x: -20 },
+  show: { opacity: 1, x: 0 },
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navLinks = [{ name: 'GitHub', href: 'https://github.com/fathur-md' }];
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-
-  const wadahTautan = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const animasiTautan = {
-    hidden: { opacity: 0, x: -20 },
-    show: { opacity: 1, x: 0 },
-  };
+  useScrollLock(isOpen);
 
   return (
     <>
@@ -39,13 +31,13 @@ const Navbar = () => {
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className="text-foreground hover:text-primary font-normal"
+            className="text-foreground hover:text-primary font-semibold tracking-normal"
           >
-            Fathurrahman Muhammad
+            {siteConfig.name}
           </Link>
 
           <nav className="hidden space-x-6 md:flex">
-            {navLinks.map((link) => (
+            {siteConfig.navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
@@ -98,7 +90,7 @@ const Navbar = () => {
               initial="hidden"
               animate="show"
             >
-              {navLinks.map((link) => (
+              {siteConfig.navLinks.map((link) => (
                 // Key cukup di elemen terluar dalam loop
                 <motion.div variants={animasiTautan} key={link.name}>
                   <Link

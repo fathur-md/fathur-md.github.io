@@ -1,4 +1,7 @@
 import RepositoryGrid from '@/components/RepositoryGrid';
+import RepositorySkeleton from '@/components/RepositorySkeleton';
+import { siteConfig } from '@/config/site';
+import { Suspense } from 'react';
 
 export default function Home() {
   return (
@@ -7,13 +10,12 @@ export default function Home() {
         <h1 className="font-borel mb-2 text-4xl leading-none font-bold text-cyan-500">
           {"Fathur's Repositories"}
         </h1>
-        <p className="text-muted font-round text-xl">
-          A live directory of my university journey, open-source projects, and
-          coding experiments.
-        </p>
+        <p className="text-muted font-round text-xl">{siteConfig.desc}</p>
       </div>
       <div className="w-full max-w-5xl px-5">
-        <RepositoryGrid />
+        <Suspense fallback={<RepositorySkeleton />}>
+          <RepositoryGrid />
+        </Suspense>
       </div>
     </div>
   );

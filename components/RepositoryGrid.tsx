@@ -1,4 +1,3 @@
-import { StarIcon } from '@/components/Icons';
 import RepositoryCard from '@/components/RepositoryCard';
 import { getGithubRepositories } from '@/lib/github';
 
