@@ -1,4 +1,4 @@
-import RepositoryGrid from '@/app/components/RepositoryGrid';
+import RepositoryGrid from '@/components/RepositoryGrid';
 
 export default function Home() {
   return (

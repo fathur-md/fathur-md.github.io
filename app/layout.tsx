@@ -1,8 +1,8 @@
 import { Nunito, Borel, Inter } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import Navbar from '@/app/components/Navbar';
-import Footer from '@/app/components/Footer';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 // import FloatingBadge from '@/app/components/FloatingBadge';
 
 const inter = Inter({
