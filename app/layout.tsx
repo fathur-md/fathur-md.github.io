@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
-import FloatingBadge from '@/app/components/FloatingBadge';
+// import FloatingBadge from '@/app/components/FloatingBadge';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -56,7 +56,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex grow flex-col">{children}</main>
         <Footer />
-        <FloatingBadge />
+        {/* <FloatingBadge /> */}
       </body>
     </html>
   );
