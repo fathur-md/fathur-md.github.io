@@ -12,6 +12,10 @@ export const siteConfig = {
       href: '/blog',
     },
     {
+      name: 'About',
+      href: '/about',
+    },
+    {
       name: 'Github',
       href: 'https://github.com/fathur-md',
     },

@@ -34,7 +34,7 @@ export default function Hero() {
     >
       <motion.h1
         variants={itemVariants}
-        className="text-primary font-round leading-normal md:text-5xl"
+        className="font-round leading-normal text-cyan-600 md:text-5xl"
       >
         Academic Documentation
       </motion.h1>
@@ -44,36 +44,36 @@ export default function Hero() {
       <motion.div variants={itemVariants}>
         <Link
           href="/projects"
-          className="bg-primary hover:bg-primary/80 mt-5 inline-flex w-fit items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors"
+          className="hover:bg-primary/80 text-primary-fg mt-5 inline-flex w-fit items-center gap-2 rounded-lg bg-cyan-600 px-4 py-2 text-sm font-medium transition-colors"
         >
           Explore
         </Link>
       </motion.div>
       <motion.div variants={itemVariants} className="mt-12 grow space-y-4">
-        <div className="relative flex min-h-40 flex-col items-start justify-center overflow-hidden rounded-2xl bg-gray-100 p-6 shadow-sm">
-          <h3 className="mb-4 w-full text-left text-sm font-bold tracking-widest text-gray-500 uppercase">
+        <div className="bg-surface relative flex min-h-40 flex-col items-start justify-center overflow-hidden rounded-2xl p-6 shadow-sm">
+          <h3 className="text-muted mb-4 w-full text-left text-sm font-bold tracking-widest uppercase">
             Github Activity
           </h3>
           <Image
-            src="https://ghchart.rshah.org/0ea5e9/fathur-md"
+            src="https://ghchart.rshah.org/fathur-md"
             alt="Github Activity"
             width={800}
             height={120}
             loading="eager"
             unoptimized
-            className="h-full w-full object-contain opacity-80 mix-blend-multiply"
+            className="h-full w-full object-contain opacity-80 mix-blend-multiply dark:mix-blend-normal"
           />
         </div>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
           {siteConfig.heroStats.map((box, index) => (
             <div
               key={index}
-              className={`flex flex-col rounded-2xl bg-gray-100 p-6 shadow-sm ${index === 2 ? 'col-span-2 md:col-span-1' : ''}`}
+              className={`bg-surface flex flex-col rounded-2xl p-6 shadow-sm ${index === 2 ? 'col-span-2 md:col-span-1' : ''}`}
             >
-              <span className="text-primary text-2xl font-bold">
+              <span className="text-2xl font-bold text-cyan-600">
                 {box.value}
               </span>
-              <span className="mt-2 text-lg font-medium text-gray-500">
+              <span className="text-muted mt-2 text-lg font-medium">
                 {box.title}
               </span>
             </div>

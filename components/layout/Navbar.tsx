@@ -28,12 +28,12 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-background/50 border-border sticky top-0 z-50 w-full border-b backdrop-blur-xl transition-colors">
+      <header className="bg-background/50 sticky top-0 z-50 w-full backdrop-blur-xl transition-colors">
         <div className="mx-auto flex h-12 max-w-5xl items-center justify-between px-6 text-sm">
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className={`text-foreground hover:text-primary font-semibold tracking-normal ${pathname === '/' ? 'text-primary' : ''}`}
+            className={`font-semibold tracking-normal hover:text-cyan-600 ${pathname === '/' ? 'text-cyan-600' : 'text-foreground/80'}`}
           >
             {siteConfig.name}
           </Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`hover:text-primary text-foreground/80 flex items-center gap-2 font-medium transition-colors ${pathname.includes(link.href) ? 'text-primary' : ''}`}
+                className={`flex items-center gap-2 font-medium transition-colors hover:text-cyan-600 ${pathname.includes(link.href) ? 'text-cyan-600' : 'text-foreground/80'}`}
               >
                 {link.name}
                 {link.name === 'Github' && (
@@ -100,7 +100,7 @@ const Navbar = () => {
                 <motion.div variants={animasiTautan} key={link.name}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary text-foreground/80 flex items-center gap-2 py-3 font-semibold transition-colors"
+                    className={`flex items-center gap-2 py-3 font-semibold transition-colors hover:text-cyan-600 ${pathname.includes(link.href) ? 'text-cyan-600' : 'text-foreground/80'}`}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
