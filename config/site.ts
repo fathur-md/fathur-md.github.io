@@ -8,8 +8,26 @@ export const siteConfig = {
       href: '/projects',
     },
     {
+      name: 'Blog',
+      href: '/blog',
+    },
+    {
       name: 'Github',
       href: 'https://github.com/fathur-md',
+    },
+  ],
+  heroStats: [
+    {
+      title: 'Academic Projects',
+      value: 7,
+    },
+    {
+      title: 'Coding Experiments',
+      value: 5,
+    },
+    {
+      title: 'Core Technologies',
+      value: 8,
     },
   ],
 };

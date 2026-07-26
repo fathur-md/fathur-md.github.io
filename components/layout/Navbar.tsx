@@ -2,9 +2,10 @@
 import { AnimatePresence, motion } from 'motion/react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { MenuIcon, CloseIcon } from './Icons';
 import { useScrollLock } from '@/hooks/use-scroll-lock';
 import { siteConfig } from '@/config/site';
+import { ExternalLink, MenuIcon, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 const wadahTautan = {
   hidden: { opacity: 0 },
@@ -21,6 +22,7 @@ const animasiTautan = {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   useScrollLock(isOpen);
 
@@ -31,7 +33,7 @@ const Navbar = () => {
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className="text-foreground hover:text-primary font-semibold tracking-normal"
+            className={`text-foreground hover:text-primary font-semibold tracking-normal ${pathname === '/' ? 'text-primary' : ''}`}
           >
             {siteConfig.name}
           </Link>
@@ -41,9 +43,12 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className="hover:text-primary text-foreground/80 font-normal transition-colors"
+                className={`hover:text-primary text-foreground/80 flex items-center gap-2 font-medium transition-colors ${pathname.includes(link.href) ? 'text-primary' : ''}`}
               >
                 {link.name}
+                {link.name === 'Github' && (
+                  <ExternalLink className="inline-block h-4 w-4" />
+                )}
               </Link>
             ))}
           </nav>
@@ -63,7 +68,7 @@ const Navbar = () => {
             />
 
             {/* Ikon Close (X) */}
-            <CloseIcon
+            <X
               className={`absolute h-6 w-6 transition-all duration-300 ease-in-out ${
                 isOpen
                   ? 'scale-100 rotate-0 opacity-100'
@@ -78,7 +83,7 @@ const Navbar = () => {
         {isOpen && (
           <motion.div
             // Z-40 agar berada di bawah Header. inset-0 menuhi layar. pt-24 mendorong konten ke bawah Header.
-            className="bg-background/95 fixed inset-x-0 top-12 bottom-0 z-40 pt-24 backdrop-blur-xl md:hidden"
+            className="bg-background/95 fixed inset-x-0 top-12 bottom-0 z-40 flex pt-6 backdrop-blur-xl md:hidden"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -95,10 +100,13 @@ const Navbar = () => {
                 <motion.div variants={animasiTautan} key={link.name}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary text-foreground/80 block py-3 font-semibold transition-colors"
+                    className="hover:text-primary text-foreground/80 flex items-center gap-2 py-3 font-semibold transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
+                    {link.name === 'Github' && (
+                      <ExternalLink className="inline-block h-8 w-8" />
+                    )}
                   </Link>
                 </motion.div>
               ))}

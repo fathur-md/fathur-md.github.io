@@ -19,7 +19,7 @@ export default async function RepositoryGrid() {
   }
 
   return (
-    <div className="">
+    <section className="mx-auto w-full max-w-5xl px-5 py-12">
       <h2 className="text-muted mb-6 text-2xl font-semibold">
         My Github Projects • {repos.length}
       </h2>
@@ -28,6 +28,6 @@ export default async function RepositoryGrid() {
           <RepositoryCard key={repo.id} repo={repo} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }

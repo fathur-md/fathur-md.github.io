@@ -1,4 +1,3 @@
-import { CloseIcon } from '@/components/Icons';
 import { getRepoReadme } from '@/lib/github';
 import { GithubRepo } from '@/types/github';
 import { AnimatePresence, motion } from 'motion/react';
@@ -6,6 +5,7 @@ import { useEffect, useState } from 'react';
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
 import { useScrollLock } from '@/hooks/use-scroll-lock';
+import { X } from 'lucide-react';
 
 interface RepositoryCardProps {
   repo: GithubRepo;
@@ -79,7 +79,7 @@ export default function RepositoryModal({
                 onClick={onClose}
                 className="rounded-full p-2 transition-colors hover:bg-gray-100"
               >
-                <CloseIcon className="h-5 w-5 text-gray-500" />
+                <X className="h-5 w-5 text-gray-500" />
               </button>
             </div>
 
@@ -91,7 +91,7 @@ export default function RepositoryModal({
                   <div className="h-8 w-8 animate-spin rounded-full border-4 border-cyan-500 border-t-transparent"></div>
                 </div>
               ) : (
-                <div className="[&>h1]:mb-4 [&>h2]:text-2xl [&>pre]:bg-gray-100 max-w-none text-gray-800 [&>h1]:text-3xl [&>h1]:font-bold [&>h2]:mt-6 [&>h2]:mb-3 [&>h2]:font-semibold [&>h3]:text-xl [&>h3]:font-semibold [&>p]:mb-4 [&>pre]:mb-4 [&>pre]:overflow-x-auto [&>pre]:rounded-lg [&>pre]:p-4 [&>ul]:mb-4 [&>ul]:ml-6 [&>ul]:list-disc">
+                <div className="max-w-none text-gray-800 [&>h1]:mb-4 [&>h1]:text-3xl [&>h1]:font-bold [&>h2]:mt-6 [&>h2]:mb-3 [&>h2]:text-2xl [&>h2]:font-semibold [&>h3]:text-xl [&>h3]:font-semibold [&>p]:mb-4 [&>pre]:mb-4 [&>pre]:overflow-x-auto [&>pre]:rounded-lg [&>pre]:bg-gray-100 [&>pre]:p-4 [&>ul]:mb-4 [&>ul]:ml-6 [&>ul]:list-disc">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {readme}
                   </ReactMarkdown>

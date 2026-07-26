@@ -1,8 +1,8 @@
-import { Nunito, Borel, Inter } from 'next/font/google';
+import { Nunito, Inter } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 // import FloatingBadge from '@/app/components/FloatingBadge';
 
 const inter = Inter({
@@ -16,14 +16,6 @@ const nunito = Nunito({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-nunito',
-  adjustFontFallback: false,
-});
-
-const borel = Borel({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: '400',
-  variable: '--font-borel',
   adjustFontFallback: false,
 });
 
@@ -50,13 +42,12 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${nunito.variable} ${borel.variable} h-full`}
+      className={`${inter.variable} ${nunito.variable} h-full`}
     >
       <body className="flex min-h-dvh flex-col">
         <Navbar />
         <main className="flex grow flex-col">{children}</main>
         <Footer />
-        {/* <FloatingBadge /> */}
       </body>
     </html>
   );

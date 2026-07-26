@@ -1,8 +1,8 @@
 'use client';
 
-import { StarIcon } from '@/components/Icons';
 import RepositoryModal from '@/components/RepositoryModal';
 import { GithubRepo } from '@/types/github';
+import { StarIcon } from 'lucide-react';
 import { useState } from 'react';
 
 export default function RepositoryCard({ repo }: { repo: GithubRepo }) {
