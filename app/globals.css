@@ -3,12 +3,12 @@
 @source '../components/**/*.{ts,tsx}';
 
 :root {
-  --background: #f7f8fb;
-  --surface: #eef0f6;
-  --surface-hover: #e4e7f0;
-  --border: #dde0ea;
-  --foreground: #1a1c23;
-  --muted: #6b7280;
+  --background: #f5f5f7;
+  --surface: #ececee;
+  --surface-hover: #e2e2e5;
+  --border: #d5d5d9;
+  --foreground: #1d1d1f;
+  --muted: #6e6e73;
   --primary: #547e93;
   --primary-hover: #3f6175;
   --primary-fg: #fafafa;
@@ -31,14 +31,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1a1c23;
-    --surface: #2a2c33;
-    --surface-hover: #3a3c43;
-    --border: #4a4c53;
-    --foreground: #fafafa;
-    --muted: #9ca3af;
-    --primary: #547e93;
-    --primary-hover: #3f6175;
+    --background: #121214;
+    --surface: #1c1c1f;
+    --surface-hover: #252528;
+    --border: #2e2e32;
+    --foreground: #f4f4f5;
+    --muted: #a1a1aa;
+    --primary: #67b2cc;
+    --primary-hover: #8ec8dd;
     --primary-fg: #fafafa;
   }
 }

@@ -13,16 +13,16 @@ export default function RepositoryCard({ repo }: { repo: GithubRepo }) {
       <button
         onClick={() => setIsOpen(true)}
         key={repo.id}
-        className="hover:bg-surface block rounded-xl border border-gray-200 p-5 text-left transition-all duration-200"
+        className="hover:bg-surface border-border block rounded-xl border p-5 text-left transition-all duration-200"
       >
-        <h3 className="text-lg font-semibold text-cyan-600">{repo.name}</h3>
+        <h3 className="text-primary text-lg font-semibold">{repo.name}</h3>
         <p className="mt-2 line-clamp-2 text-sm text-gray-400">
           {repo.description || 'No description provided.'}
         </p>
-        <div className="mt-4 flex gap-4 font-mono text-xs text-gray-500">
+        <div className="text-muted mt-4 flex gap-4 font-mono text-xs">
           {repo.language && (
             <span className="flex items-center gap-1">
-              <span className="inline-block h-2 w-2 rounded-full bg-cyan-500"></span>
+              <span className="bg-primary inline-block h-2 w-2 rounded-full"></span>
               {repo.language}
             </span>
           )}

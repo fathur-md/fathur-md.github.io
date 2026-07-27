@@ -34,7 +34,7 @@ export default function Hero() {
     >
       <motion.h1
         variants={itemVariants}
-        className="font-round leading-normal text-cyan-600 md:text-5xl"
+        className="font-round text-primary leading-normal md:text-5xl"
       >
         Academic Documentation
       </motion.h1>
@@ -44,7 +44,7 @@ export default function Hero() {
       <motion.div variants={itemVariants}>
         <Link
           href="/projects"
-          className="hover:bg-primary/80 text-primary-fg mt-5 inline-flex w-fit items-center gap-2 rounded-lg bg-cyan-600 px-4 py-2 text-sm font-medium transition-colors"
+          className="hover:bg-primary/80 text-primary-fg bg-primary mt-5 inline-flex w-fit items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors"
         >
           Explore
         </Link>
@@ -70,7 +70,7 @@ export default function Hero() {
               key={index}
               className={`bg-surface flex flex-col rounded-2xl p-6 shadow-sm ${index === 2 ? 'col-span-2 md:col-span-1' : ''}`}
             >
-              <span className="text-2xl font-bold text-cyan-600">
+              <span className="text-primary text-2xl font-bold">
                 {box.value}
               </span>
               <span className="text-muted mt-2 text-lg font-medium">

@@ -33,7 +33,7 @@ const Navbar = () => {
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className={`font-semibold tracking-normal hover:text-cyan-600 ${pathname === '/' ? 'text-cyan-600' : 'text-foreground/80'}`}
+            className={`hover:text-primary font-semibold tracking-normal ${pathname === '/' ? 'text-primary' : 'text-foreground/80'}`}
           >
             {siteConfig.name}
           </Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center gap-2 font-medium transition-colors hover:text-cyan-600 ${pathname.includes(link.href) ? 'text-cyan-600' : 'text-foreground/80'}`}
+                className={`hover:text-primary flex items-center gap-2 font-medium transition-colors ${pathname.includes(link.href) ? 'text-primary' : 'text-foreground/80'}`}
               >
                 {link.name}
                 {link.name === 'Github' && (
@@ -100,7 +100,7 @@ const Navbar = () => {
                 <motion.div variants={animasiTautan} key={link.name}>
                   <Link
                     href={link.href}
-                    className={`flex items-center gap-2 py-3 font-semibold transition-colors hover:text-cyan-600 ${pathname.includes(link.href) ? 'text-cyan-600' : 'text-foreground/80'}`}
+                    className={`hover:text-primary flex items-center gap-2 py-3 font-semibold transition-colors ${pathname.includes(link.href) ? 'text-primary' : 'text-foreground/80'}`}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
