@@ -1,9 +1,9 @@
-import RepositoryGrid from '@/components/RepositoryGrid';
+import HeroProject from '@/components/sections/HeroProject';
 
 export default function page() {
   return (
     <>
-      <RepositoryGrid />
+      <HeroProject />
     </>
   );
 }
