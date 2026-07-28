@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-background/50 sticky top-0 z-100 w-full backdrop-blur-xl transition-colors">
+      <header className="bg-background/50 fixed top-0 z-100 w-full backdrop-blur-xl transition-colors">
         <div className="mx-auto flex h-12 max-w-5xl items-center justify-between px-6 text-sm">
           <Link
             href="/"

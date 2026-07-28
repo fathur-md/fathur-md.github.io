@@ -45,7 +45,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-dvh flex-col">
         <Navbar />
-        <main className="flex grow flex-col">{children}</main>
+        {children}
         <Footer />
       </body>
     </html>

@@ -1,28 +1,30 @@
 'use client';
 
-import { useState } from 'react';
-import { projectCategories } from '@/config/project';
-import { ProjectCategory } from '@/types/project';
-import CategoryCard from '@/components/ui/CategoryCard';
+import { containerVariants, itemVariants } from '@/lib/motion';
+import { motion } from 'motion/react';
 
 export default function HeroProject() {
-  const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null);
   return (
-    <section className="min-h-screen-nav mx-auto w-full max-w-5xl px-5">
-      <div className="relative mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {projectCategories.map((category) => (
-          <CategoryCard
-            key={category.id}
-            category={category}
-            isActive={activeCategoryId === category.id}
-            onClick={() =>
-              setActiveCategoryId(
-                activeCategoryId === category.id ? null : category.id,
-              )
-            }
-          />
-        ))}
+    <motion.section
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+    >
+      <div className="mx-auto max-w-5xl px-5 py-10">
+        <motion.h1
+          variants={itemVariants}
+          className="font-round text-primary leading-normal md:text-5xl"
+        >
+          Projects.
+        </motion.h1>
+        <motion.p
+          variants={itemVariants}
+          className="text-muted mt-2 md:text-xl"
+        >
+          A collection of things I&apos;ve built, broken, and learned from. From
+          academic research to midnight experiments.
+        </motion.p>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,28 +1,10 @@
 'use client';
 
 import { siteConfig } from '@/config/site';
-import { motion, Variants } from 'motion/react';
+import { containerVariants, itemVariants } from '@/lib/motion';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { type: 'spring', stiffness: 300, damping: 24 },
-  },
-};
 
 export default function Hero() {
   return (
@@ -38,19 +20,19 @@ export default function Hero() {
       >
         Academic Documentation
       </motion.h1>
-      <motion.p variants={itemVariants} className="text-muted text-xl">
+      <motion.p variants={itemVariants} className="text-muted md:text-xl">
         Archive of university projects and coding experiments.
       </motion.p>
       <motion.div variants={itemVariants}>
         <Link
           href="/projects"
-          className="hover:bg-primary/80 text-primary-fg bg-primary mt-5 inline-flex w-fit items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors"
+          className="hover:bg-primary/80 bg-primary mt-5 inline-flex w-fit items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors"
         >
           Explore
         </Link>
       </motion.div>
       <motion.div variants={itemVariants} className="mt-12 grow space-y-4">
-        <div className="bg-surface relative flex min-h-40 flex-col items-start justify-center overflow-hidden rounded-2xl p-6 shadow-sm">
+        <div className="bg-surface border-border/10 relative flex min-h-40 flex-col items-start justify-center overflow-hidden rounded-2xl border-2 p-6 shadow-sm">
           <h3 className="text-muted mb-4 w-full text-left text-sm font-bold tracking-widest uppercase">
             Github Activity
           </h3>
