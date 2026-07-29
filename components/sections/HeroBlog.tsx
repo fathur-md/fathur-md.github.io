@@ -1,46 +1,52 @@
+'use client';
+
 import Image from 'next/image';
+import walpp from '@/public/images/wallpp.jpeg';
+import { AnimatePresence, motion } from 'motion/react';
+import { useState } from 'react';
+import { Loader } from 'lucide-react';
 
 export default function HeroBlog() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
-    <section className="relative flex min-h-[40dvh] flex-col justify-end overflow-hidden">
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <section className="relative flex min-h-[50dvh] flex-col justify-end overflow-hidden">
+      <AnimatePresence>
+        {!isLoaded && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 top-12 flex items-center justify-center"
+          >
+            <Loader className="h-8 w-8 animate-spin text-gray-400" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        className="absolute inset-0 z-50 flex items-center justify-center"
+      >
         <Image
-          src="/images/wallpp.jpeg"
+          src={walpp}
           alt="Hero Blog Image"
-          width={1920}
-          height={1080}
-          loading="eager"
-          className="h-full w-full object-cover"
+          fill
+          priority
+          placeholder="blur"
+          className="object-cover"
+          onLoad={() => setIsLoaded(true)}
         />
-      </div>
-      <div className="absolute inset-0 z-5 bg-linear-to-t from-black/50 via-transparent to-transparent" />
-      <div className="relative z-10 mx-auto mb-4 flex w-full max-w-5xl flex-wrap items-center justify-between gap-8 p-5 md:gap-4">
-        <div>
-          <h1 className="text-4xl leading-none font-medium text-white">
+
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/50" />
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-5xl flex-col justify-end p-5 pb-10">
+          <h1 className="text-4xl leading-none font-medium text-white drop-shadow-sm">
             Thoughts & Documentations.
           </h1>
           <p className="mt-3 max-w-2xl text-base leading-tight text-white md:text-lg">
             Notes and documentations from my academic journey.
           </p>
         </div>
-        <div className="flex grow flex-col gap-4 md:items-end">
-          <div className="flex w-full items-center gap-4 md:justify-end">
-            <Image
-              src="https://raw.githubusercontent.com/fathur-md/ppw/main/assets/img/gambar3.png"
-              alt="Avatar"
-              width={100}
-              height={100}
-              className="pointer-events-none h-12 w-full max-w-12 rounded-full object-cover object-top"
-            />
-            <div>
-              <p className="text-base text-white">Fathurrahman Muhammad</p>
-              <span className="text-sm text-white">
-                Placeholder • 26 Jul 2026
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
