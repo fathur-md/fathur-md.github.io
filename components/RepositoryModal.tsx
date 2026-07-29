@@ -58,14 +58,12 @@ export default function RepositoryModal({
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative flex max-h-[85vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl"
+            className="bg-background relative flex max-h-[85vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl shadow-2xl"
           >
             {/* Header Modal (Sticky) */}
-            <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
+            <div className="border-border flex items-center justify-between border-b px-6 py-4">
               <div>
-                <h2 className="text-gray- 800 text-xl font-bold">
-                  {repo.name}
-                </h2>
+                <h2 className="text-xl font-bold">{repo.name}</h2>
                 <a
                   href={repo.html_url}
                   target="_blank"
@@ -77,9 +75,9 @@ export default function RepositoryModal({
               </div>
               <button
                 onClick={onClose}
-                className="rounded-full p-2 transition-colors hover:bg-gray-100"
+                className="hover:bg-surface-hover rounded-full p-2 transition-colors"
               >
-                <X className="h-5 w-5 text-gray-500" />
+                <X className="h-5 w-5" />
               </button>
             </div>
 
@@ -91,7 +89,7 @@ export default function RepositoryModal({
                   <div className="h-8 w-8 animate-spin rounded-full border-4 border-cyan-500 border-t-transparent"></div>
                 </div>
               ) : (
-                <div className="max-w-none text-gray-800 [&>h1]:mb-4 [&>h1]:text-3xl [&>h1]:font-bold [&>h2]:mt-6 [&>h2]:mb-3 [&>h2]:text-2xl [&>h2]:font-semibold [&>h3]:text-xl [&>h3]:font-semibold [&>p]:mb-4 [&>pre]:mb-4 [&>pre]:overflow-x-auto [&>pre]:rounded-lg [&>pre]:bg-gray-100 [&>pre]:p-4 [&>ul]:mb-4 [&>ul]:ml-6 [&>ul]:list-disc">
+                <div className="text-foreground [&>pre]:bg-surface max-w-none [&>h1]:mb-4 [&>h1]:text-3xl [&>h1]:font-bold [&>h2]:mt-6 [&>h2]:mb-3 [&>h2]:text-2xl [&>h2]:font-semibold [&>h3]:text-xl [&>h3]:font-semibold [&>p]:mb-4 [&>pre]:mb-4 [&>pre]:overflow-x-auto [&>pre]:rounded-lg [&>pre]:p-4 [&>ul]:mb-4 [&>ul]:ml-6 [&>ul]:list-disc">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {readme}
                   </ReactMarkdown>
