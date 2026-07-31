@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <>
       <header className="bg-background/50 border-border/50 fixed top-0 z-100 w-full border-b backdrop-blur-xl transition-colors">
-        <div className="mx-auto flex h-12 max-w-5xl items-center justify-between px-6 text-sm">
+        <div className="mx-auto flex h-11.75 max-w-5xl items-center justify-between px-6 text-sm">
           <Link
             href="/"
             onClick={() => setIsOpen(false)}

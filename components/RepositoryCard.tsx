@@ -28,7 +28,7 @@ export default function RepositoryCard({
         }}
         onClick={() => setIsOpen(true)}
         key={repo.id}
-        className="border-border block rounded-xl border p-5 text-left"
+        className="border-border bg-surface block rounded-xl border p-5 text-left"
       >
         <h3 className="text-primary text-lg font-semibold">{repo.name}</h3>
         <p className="mt-2 line-clamp-2 text-sm text-gray-400">
