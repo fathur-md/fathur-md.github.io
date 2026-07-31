@@ -12,17 +12,19 @@ export default function RepoCard({ repo }: { repo: GithubRepo }) {
       <motion.button
         layoutId={`card-${repo.id}`}
         onClick={() => setIsOpen(true)}
-        // transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        transition={{ type: 'spring', stiffness: 500, damping: 45 }}
         className="bg-surface hover:bg-surface-hover relative z-10 flex h-full w-full flex-col rounded-2xl p-6 text-left shadow-sm"
       >
         <motion.h3
           layoutId={`name-${repo.id}`}
+          transition={{ type: 'spring', stiffness: 500, damping: 45 }}
           className="text-primary text-xl"
         >
           {repo.name}
         </motion.h3>
         <motion.div
           layoutId={`content-fade-${repo.id}`}
+          transition={{ type: 'spring', stiffness: 500, damping: 45 }}
           className="mt-2 flex flex-1 flex-col"
         >
           <p className="text-muted line-clamp-3 text-sm">

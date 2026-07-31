@@ -40,6 +40,7 @@ export default function RepoModal({
       />
       <motion.div
         layoutId={`card-${repo.id}`}
+        transition={{ type: 'spring', stiffness: 500, damping: 45 }}
         className="bg-surface fixed inset-x-0 top-20 z-100 mx-auto flex h-[85vh] flex-col overflow-hidden rounded-2xl p-6 shadow-sm sm:inset-x-5 md:max-w-235"
       >
         <motion.button
@@ -56,18 +57,20 @@ export default function RepoModal({
         <div className="border-border flex shrink-0 flex-col border-b pb-4 text-left">
           <motion.h3
             layoutId={`name-${repo.id}`}
+            transition={{ type: 'spring', stiffness: 500, damping: 45 }}
             className="text-primary text-xl"
           >
             {repo.name}
           </motion.h3>
           <motion.div
             layoutId={`content-fade-${repo.id}`}
+            transition={{ type: 'spring', stiffness: 500, damping: 45 }}
             className="h-0 overflow-hidden opacity-0"
           ></motion.div>
           <motion.a
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
+            exit={{ opacity: 0, y: 10, transition: { duration: 0 } }}
             transition={{ duration: 0.5, delay: 0.3 }}
             href={repo.html_url}
             target="_blank"
