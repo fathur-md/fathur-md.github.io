@@ -1,4 +1,3 @@
-import AppStore from '@/app/test/AppStore';
 import HeroBlog from '@/components/sections/HeroBlog';
 
 export default function page() {
