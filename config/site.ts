@@ -8,8 +8,8 @@ export const siteConfig = {
       href: '/projects',
     },
     {
-      name: 'Blog',
-      href: '/blog',
+      name: 'Lab',
+      href: '/lab',
     },
     {
       name: 'About',

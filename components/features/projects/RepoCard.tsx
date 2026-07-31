@@ -13,7 +13,7 @@ export default function RepoCard({ repo }: { repo: GithubRepo }) {
         layoutId={`card-${repo.id}`}
         onClick={() => setIsOpen(true)}
         transition={{ type: 'spring', stiffness: 500, damping: 45 }}
-        className="bg-surface hover:bg-surface-hover relative z-10 flex h-full w-full flex-col rounded-2xl p-6 text-left shadow-sm"
+        className="bg-surface hover:bg-surface-hover relative z-10 flex h-full w-full flex-col rounded-2xl p-6 text-left"
       >
         <motion.h3
           layoutId={`name-${repo.id}`}

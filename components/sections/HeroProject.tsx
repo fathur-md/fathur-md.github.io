@@ -2,6 +2,7 @@
 
 import { containerVariants, itemVariants } from '@/lib/motion';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 
 export default function HeroProject() {
   return (
@@ -24,6 +25,14 @@ export default function HeroProject() {
           A collection of things I&apos;ve built, broken, and learned from. From
           academic research to midnight experiments.
         </motion.p>
+        <motion.div variants={itemVariants}>
+          <Link
+            href="/lab"
+            className="hover:bg-primary/80 bg-primary mt-5 inline-flex w-fit items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors"
+          >
+            See the Lab
+          </Link>
+        </motion.div>
       </div>
     </motion.section>
   );
