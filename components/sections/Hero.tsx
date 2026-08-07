@@ -58,7 +58,7 @@ export default function Hero() {
               height={120}
               loading="eager"
               unoptimized
-              className="h-full min-w-150 object-contain opacity-80 mix-blend-multiply dark:mix-blend-normal"
+              className="h-full w-full min-w-150 object-contain opacity-80 mix-blend-multiply dark:mix-blend-normal"
             />
           </div>
         </div>
