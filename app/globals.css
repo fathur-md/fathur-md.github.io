@@ -1,156 +1,102 @@
 @import 'tailwindcss';
-@source '../app/**/*.{ts,tsx}';
-@source '../components/**/*.{ts,tsx}';
 
 :root {
-  --background: #fafafa;
-  --surface: #f5f5f7;
-  --surface-hover: #e2e2e5;
-  --border: #d5d5d9;
-  --foreground: #1d1d1f;
-  --muted: #6e6e73;
-  --primary: #547e93;
-  --primary-hover: #3f6175;
+  --background: #f5f5f4;
+  --foreground: #1c1917;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --border-glass: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  --accent: #f97316;
+  --accent-secondary: #8b5cf6;
+  --muted: #78716c;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-surface-hover: var(--surface-hover);
-  --color-border: var(--border);
   --color-foreground: var(--foreground);
+  --color-card-bg: var(--card-bg);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
   --color-muted: var(--muted);
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-border-glass: var(--border-glass);
 
-  --font-sans: var(--font-inter);
-  --font-round: var(--font-nunito);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-round: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #121212;
-    --surface: #1c1c1e;
-    --surface-hover: #252528;
-    --border: #2e2e32;
-    --foreground: #f4f4f5;
-    --muted: #a1a1aa;
-    --primary: #67b2cc;
-    --primary-hover: #8ec8dd;
+    --background: #111111;
+    --foreground: #f5f5f4;
+    --card-bg: rgba(28, 25, 23, 0.6);
+    --accent: #fb923c;
+    --accent-secondary: #a78bfa;
+    --muted: #a8a29e;
+    --success: #4ade80;
+    --warning: #fbbf24;
+    --error: #f87171;
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
 }
 
 html {
+  scrollbar-gutter: stable;
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  font-feature-settings:
-    'kern' 1,
-    'liga' 1,
-    'calt' 1,
-    'ss01' 1;
 }
-
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family:
-    var(--font-sans),
-    system-ui,
-    -apple-system,
-    sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  letter-spacing: -0.005em;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  scrollbar-width: none;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+::-moz-selection {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(150, 150, 150, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
 }
 
 @layer base {
-  h1 {
-    font-size: clamp(2.25rem, 5vw, 3.75rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-  }
-
-  h2 {
-    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-  }
-
-  h3 {
-    font-size: clamp(1.35rem, 2.5vw, 1.875rem);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-
-  h4 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-  }
-
-  h5 {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-  }
-
-  h6 {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -0.005em;
-  }
-
-  p {
-    font-size: 1.0625rem;
-    font-weight: 400;
-    line-height: 1.65;
-    letter-spacing: -0.005em;
-  }
-
-  small,
-  .caption {
-    font-size: 0.8125rem;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: 0em;
-    color: var(--muted);
-  }
-
-  a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.15s ease;
-  }
-
-  a:hover {
-    color: var(--primary-hover);
-  }
-
-  strong,
-  b {
-    font-weight: 600;
-  }
-
-  code {
-    font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
-    font-size: 0.875em;
-    letter-spacing: 0em;
-    background: color-mix(in srgb, var(--foreground) 8%, transparent);
-    padding: 0.1em 0.35em;
-    border-radius: 4px;
-  }
-
   button {
     cursor: pointer;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.02em;
   }
 }
 

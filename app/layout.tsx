@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import BackgroundGlow from '@/components/ui/BackgroundGlow';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,9 +28,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f5f5f4' },
+    { media: '(prefers-color-scheme: dark)', color: '#111111' },
+  ],
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#547E93',
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -44,6 +49,7 @@ export default function RootLayout({
       className={`${inter.variable} ${nunito.variable} h-full`}
     >
       <body className="flex min-h-dvh flex-col">
+        <BackgroundGlow />
         <Navbar />
         {children}
         <Footer />

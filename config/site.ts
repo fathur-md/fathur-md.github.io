@@ -8,12 +8,8 @@ export const siteConfig = {
       href: '/projects',
     },
     {
-      name: 'Lab',
-      href: '/lab',
-    },
-    {
-      name: 'About',
-      href: '/about',
+      name: 'Server',
+      href: 'https://fathur.duckdns.org',
     },
     {
       name: 'Github',

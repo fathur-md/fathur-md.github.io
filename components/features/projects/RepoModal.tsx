@@ -35,13 +35,13 @@ export default function RepoModal({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.1 }}
-        className="bg-background fixed inset-0 z-90"
+        className="bg-background/50 fixed inset-0 z-40 backdrop-blur-sm"
         onClick={onClose}
       />
       <motion.div
         layoutId={`card-${repo.id}`}
         transition={{ type: 'spring', stiffness: 500, damping: 45 }}
-        className="bg-surface fixed inset-x-0 top-20 z-100 mx-auto flex h-[85vh] flex-col overflow-hidden rounded-2xl p-6 shadow-sm sm:inset-x-5 md:max-w-235"
+        className="border-border-glass bg-card-bg fixed inset-x-0 top-20 z-100 mx-auto flex h-[85vh] flex-col overflow-hidden rounded-3xl border p-6 shadow-(--glass-shadow) backdrop-blur-2xl sm:inset-x-5 md:max-w-4xl"
       >
         <motion.button
           initial={{ opacity: 0, x: 10 }}
@@ -49,16 +49,17 @@ export default function RepoModal({
           exit={{ opacity: 0, x: 10, transition: { duration: 0 } }}
           transition={{ duration: 0.2, delay: 0.3 }}
           onClick={onClose}
-          className="absolute top-5 right-5 z-10 rounded-full bg-neutral-200/60 p-2 text-neutral-600 backdrop-blur-md transition-all hover:bg-neutral-300 dark:bg-neutral-800/60 dark:text-neutral-300 dark:hover:bg-neutral-700"
+          className="bg-background/50 border-border-glass hover:bg-foreground/10 text-foreground/70 absolute top-5 right-5 z-10 rounded-full border p-2 backdrop-blur-md transition-all active:scale-95"
         >
           <X className="h-5 w-5" />
         </motion.button>
 
-        <div className="border-border flex shrink-0 flex-col border-b pb-4 text-left">
+        <div className="border-border-glass flex shrink-0 flex-col border-b pb-5 text-left">
           <motion.h3
             layoutId={`name-${repo.id}`}
             transition={{ type: 'spring', stiffness: 500, damping: 45 }}
-            className="text-primary text-xl"
+
+            className="text-accent text-xl font-semibold"
           >
             {repo.name}
           </motion.h3>
@@ -75,7 +76,7 @@ export default function RepoModal({
             href={repo.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 w-fit text-sm text-cyan-600 hover:underline"
+            className="text-accent hover:text-accent-secondary mt-3 w-fit text-sm font-semibold transition-colors hover:underline"
           >
             View on GitHub ↗
           </motion.a>
@@ -85,11 +86,11 @@ export default function RepoModal({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.1 } }}
-            className="mt-4 flex-1 overflow-y-auto pr-2"
+            className="mt-6 flex-1 overflow-y-auto pr-2"
           >
             {isLoading && !readme && (
               <div className="flex justify-center py-20">
-                <div className="h-8 w-8 animate-spin rounded-full border-4 border-cyan-500 border-t-transparent"></div>
+                <div className="border-accent h-10 w-10 animate-spin rounded-full border-4 border-t-transparent"></div>
               </div>
             )}
 
@@ -98,7 +99,7 @@ export default function RepoModal({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="text-foreground [&>pre]:bg-surface-hover max-w-none [&>h1]:mb-4 [&>h1]:text-3xl [&>h1]:font-bold [&>h2]:mt-6 [&>h2]:mb-3 [&>h2]:text-2xl [&>h2]:font-semibold [&>h3]:text-xl [&>h3]:font-semibold [&>p]:mb-4 [&>pre]:mb-4 [&>pre]:overflow-x-auto [&>pre]:rounded-lg [&>pre]:p-4 [&>ul]:mb-4 [&>ul]:ml-6 [&>ul]:list-disc"
+                className="text-foreground [&>h1]:font- black [&>pre]:bg-background/40 [&>pre]:border- border-glass max-w-none [&>h1]:mb-5 [&>h1]:text-4xl [&>h2]:mt-8 [&>h2]:mb-4 [&>h2]:text-3xl [&>h2]:font-bold [&>h3]:mt-6 [&>h3]:text-2xl [&>h3]:font-semibold [&>p]:mb-4 [&>p]:leading-relaxed [&>pre]:mb-6 [&>pre]:overflow-x-auto [&>pre]:rounded-xl [&>pre]:border [&>pre]:p-5 [&>pre]:backdrop-blur-md [&>ul]:mb-4 [&>ul]:ml-6 [&>ul]:list-disc"
               >
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                   {readme}

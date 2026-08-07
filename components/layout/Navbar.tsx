@@ -1,116 +1,127 @@
 'use client';
+
 import { AnimatePresence, motion } from 'motion/react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useScrollLock } from '@/hooks/use-scroll-lock';
 import { siteConfig } from '@/config/site';
-import { ExternalLink, MenuIcon, X } from 'lucide-react';
+import { ExternalLink, Menu, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-
-const wadahTautan = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const animasiTautan = {
-  hidden: { opacity: 0, x: -20 },
-  show: { opacity: 1, x: 0 },
-};
+import { useScrolled } from '@/hooks/use-scrolled';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  const isScrolled = useScrolled(20);
   useScrollLock(isOpen);
 
   return (
     <>
-      <header className="bg-background/50 border-border/50 fixed top-0 z-100 w-full border-b backdrop-blur-xl transition-colors">
-        <div className="mx-auto flex h-11.75 max-w-5xl items-center justify-between px-6 text-sm">
-          <Link
-            href="/"
-            onClick={() => setIsOpen(false)}
-            className={`hover:text-primary font-semibold tracking-normal ${pathname === '/' ? 'text-primary' : 'text-foreground/80'}`}
-          >
-            {siteConfig.name}
-          </Link>
-
-          <nav className="hidden space-x-6 md:flex">
-            {siteConfig.navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`hover:text-primary flex items-center gap-2 font-medium transition-colors ${pathname.includes(link.href) ? 'text-primary' : 'text-foreground/80'}`}
-              >
-                {link.name}
-                {link.name === 'Github' && (
-                  <ExternalLink className="inline-block h-4 w-4" />
-                )}
-              </Link>
-            ))}
-          </nav>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-foreground relative flex h-6 w-6 items-center justify-center focus:outline-none md:hidden"
-            aria-label="Toggle menu"
-          >
-            {/* Ikon Hamburger */}
-            <MenuIcon
-              className={`absolute h-6 w-6 transition-all duration-300 ease-in-out ${
-                isOpen
-                  ? 'scale-50 rotate-90 opacity-0'
-                  : 'scale-100 rotate-0 opacity-100'
+      <header
+        className={`fixed top-0 z-50 flex w-full justify-center transition-all duration-500 ease-out md:px-4 md:pt-4 ${
+          isScrolled ? 'px-0 pt-0' : 'px-4 pt-2'
+        }`}
+      >
+        <nav
+          className={`border-border-glass md:bg-card-bg flex flex-col border-b shadow-(--glass-shadow) backdrop-blur-2xl transition-all duration-500 ease-out md:w-auto md:max-w-2xl md:rounded-full md:border ${
+            isScrolled
+              ? 'bg-background/50 w-full max-w-full rounded-none border-x-0 border-t-0 border-b'
+              : 'bg-card-bg/80 w-full max-w-2xl rounded-3xl border'
+          }`}
+        >
+          <div className="flex items-center justify-between gap-8 px-4 py-2 md:px-5">
+            <Link
+              href="/"
+              className={`font-bold tracking-tight transition-opacity hover:opacity-70 ${
+                pathname === '/' ? 'text-accent' : 'text-foreground/60'
               }`}
-            />
-
-            {/* Ikon Close (X) */}
-            <X
-              className={`absolute h-6 w-6 transition-all duration-300 ease-in-out ${
-                isOpen
-                  ? 'scale-100 rotate-0 opacity-100'
-                  : 'scale-50 -rotate-90 opacity-0'
-              }`}
-            />
-          </button>
-        </div>
+              onClick={() => setIsOpen(false)}
+            >
+              FathurM
+            </Link>
+            <ul className="text-foreground/70 hidden items-center gap-6 text-sm font-medium md:flex">
+              {siteConfig.navLinks.map((link) => {
+                const isExternal = link.href.startsWith('http');
+                const isActive =
+                  !isExternal &&
+                  (pathname === link.href ||
+                    (link.href !== '/' && pathname.startsWith(link.href)));
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      target={isExternal ? '_blank' : undefined}
+                      rel={isExternal ? 'noopener noreferrer' : undefined}
+                      className={`flex items-center transition-opacity hover:opacity-70 ${
+                        isActive ? 'text-accent' : ''
+                      }`}
+                    >
+                      {link.name}
+                      {isExternal && (
+                        <ExternalLink className="ml-1 inline-block h-4 w-4" />
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <button
+              className="text-foreground/70 flex p-1 transition-transform hover:scale-110 active:scale-95 md:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </nav>
       </header>
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            // Z-40 agar berada di bawah Header. inset-0 menuhi layar. pt-24 mendorong konten ke bawah Header.
-            className="bg-background/95 fixed inset-x-0 top-12 bottom-0 z-40 flex pt-6 backdrop-blur-xl md:hidden"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)}
+            className="bg-background/50 fixed inset-0 z-40 flex items-start justify-center px-6 pt-16 backdrop-blur-sm md:hidden"
           >
-            <motion.nav
-              className="flex flex-col gap-4 px-10 text-3xl"
-              variants={wadahTautan}
-              initial="hidden"
-              animate="show"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              onClick={(e) => e.stopPropagation()}
+              className={`border-border-glass bg-card-bg flex w-full rounded-2xl border backdrop-blur-2xl`}
             >
-              {siteConfig.navLinks.map((link) => (
-                // Key cukup di elemen terluar dalam loop
-                <motion.div variants={animasiTautan} key={link.name}>
-                  <Link
-                    href={link.href}
-                    className={`hover:text-primary flex items-center gap-2 py-3 font-semibold transition-colors ${pathname.includes(link.href) ? 'text-primary' : 'text-foreground/80'}`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                    {link.name === 'Github' && (
-                      <ExternalLink className="inline-block h-8 w-8" />
-                    )}
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.nav>
+              <ul className="flex w-full flex-col gap-6 px-6 py-5 text-xl font-medium">
+                {siteConfig.navLinks.map((link) => {
+                  const isExternal = link.href.startsWith('http');
+                  const isActive =
+                    !isExternal &&
+                    (pathname === link.href ||
+                      (link.href !== '/' && pathname.startsWith(link.href)));
+
+                  return (
+                    <li key={link.name}>
+                      <Link
+                        href={link.href}
+                        target={isExternal ? '_blank' : undefined}
+                        rel={isExternal ? 'noopener noreferrer' : undefined}
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center py-1 transition-opacity hover:opacity-70 ${
+                          isActive ? 'text-accent' : 'text-foreground/70'
+                        }`}
+                      >
+                        {link.name}
+                        {isExternal && (
+                          <ExternalLink className="ml-1 inline-block h-5 w-5" />
+                        )}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

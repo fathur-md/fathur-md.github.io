@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  allowedDevOrigins: ['172.20.10.2'],
   output: 'export',
   images: {
     unoptimized: true,
@@ -23,7 +23,6 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  trailingSlash: true,
 };
 
 export default nextConfig;

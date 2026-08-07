@@ -25,7 +25,7 @@ export default function RepoGrid() {
           return (
             <li
               key={repo.id}
-              className={`${isWide ? 'md:col-span-3' : 'md:col-span-2'} min-h-`}
+              className={`${isWide ? 'md:col-span-3' : 'md:col-span-2'}`}
             >
               <RepoCard repo={repo} />
             </li>
