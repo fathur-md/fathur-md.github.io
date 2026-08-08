@@ -19,12 +19,12 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`md:shadow-glass-inner fixed top-0 z-50 flex w-full justify-center transition-all duration-500 ease-out md:px-4 md:pt-4 ${
+        className={`fixed top-0 z-50 flex w-full justify-center transition-all duration-500 ease-out md:px-4 md:pt-4 ${
           isScrolled ? 'px-0 pt-0' : 'px-4 pt-2'
         }`}
       >
         <nav
-          className={`border-border-glass md:bg-card-bg flex flex-col border-b backdrop-blur-2xl transition-all duration-500 ease-out md:w-auto md:max-w-2xl md:rounded-full md:border ${
+          className={`border-border-glass md:shadow-glass-inner md:bg-card-bg flex flex-col border-b backdrop-blur-2xl transition-all duration-500 ease-out md:w-auto md:max-w-2xl md:rounded-full md:border ${
             isScrolled
               ? 'bg-background/50 w-full max-w-full rounded-none border-x-0 border-t-0 border-b'
               : 'bg-card-bg/80 shadow-glass-inner w-full max-w-2xl rounded-3xl border'
@@ -36,7 +36,12 @@ const Navbar = () => {
               className={`font-bold tracking-tight transition-opacity hover:opacity-70 ${
                 pathname === '/' ? 'text-accent' : 'text-foreground/60'
               }`}
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                if (pathname !== '/') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
             >
               FathurM
             </Link>
@@ -91,7 +96,7 @@ const Navbar = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               onClick={(e) => e.stopPropagation()}
-              className={`border-border-glass bg-card-bg flex w-full rounded-2xl border backdrop-blur-2xl`}
+              className={`border-border-glass shadow-glass-inner bg-card-bg flex w-full rounded-2xl border backdrop-blur-2xl`}
             >
               <ul className="flex w-full flex-col gap-6 px-6 py-5 text-xl font-medium">
                 {siteConfig.navLinks.map((link) => {
