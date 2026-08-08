@@ -19,15 +19,15 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`fixed top-0 z-50 flex w-full justify-center transition-all duration-500 ease-out md:px-4 md:pt-4 ${
+        className={`md:shadow-glass-inner fixed top-0 z-50 flex w-full justify-center transition-all duration-500 ease-out md:px-4 md:pt-4 ${
           isScrolled ? 'px-0 pt-0' : 'px-4 pt-2'
         }`}
       >
         <nav
-          className={`border-border-glass md:bg-card-bg flex flex-col border-b shadow-(--glass-shadow) backdrop-blur-2xl transition-all duration-500 ease-out md:w-auto md:max-w-2xl md:rounded-full md:border ${
+          className={`border-border-glass md:bg-card-bg flex flex-col border-b backdrop-blur-2xl transition-all duration-500 ease-out md:w-auto md:max-w-2xl md:rounded-full md:border ${
             isScrolled
               ? 'bg-background/50 w-full max-w-full rounded-none border-x-0 border-t-0 border-b'
-              : 'bg-card-bg/80 w-full max-w-2xl rounded-3xl border'
+              : 'bg-card-bg/80 shadow-glass-inner w-full max-w-2xl rounded-3xl border'
           }`}
         >
           <div className="flex items-center justify-between gap-8 px-4 py-2 md:px-5">

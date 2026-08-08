@@ -37,7 +37,7 @@ export default function Hero() {
       >
         <Link
           href="/projects"
-          className="bg-accent border-border-glass mx-auto flex items-center gap-2 rounded-full border px-6 py-2 text-sm font-semibold text-white shadow-(--glass-shadow) transition-transform hover:scale-105 active:scale-95 md:mx-0"
+          className="bg-accent border-border-glass shadow-glass-inner mx-auto flex items-center gap-2 rounded-full border px-6 py-2 text-sm font-semibold text-white transition-transform hover:scale-105 active:scale-95 md:mx-0"
         >
           Explore Projects <ArrowRight size={16} />
         </Link>
@@ -46,7 +46,7 @@ export default function Hero() {
         variants={itemVariants}
         className="mt-10 flex grow flex-col space-y-4"
       >
-        <div className="border-border-glass bg-card-bg hover:bg-card-bg/80 relative flex min-h-40 w-full flex-col items-start justify-center overflow-hidden rounded-3xl border p-6 shadow-(--glass-shadow) backdrop-blur-xl transition-transform">
+        <div className="border-border-glass bg-card-bg hover:bg-card-bg/80 shadow-glass-inner relative flex min-h-40 w-full flex-col items-start justify-center overflow-hidden rounded-3xl border p-6 backdrop-blur-xl transition-transform">
           <h3 className="text-foreground/80 mb-4 flex w-full items-center gap-2 text-left text-sm font-bold tracking-widest uppercase">
             <Activity size={16} /> Github Activity
           </h3>
@@ -66,7 +66,7 @@ export default function Hero() {
           {siteConfig.heroStats.map((box, index) => (
             <div
               key={index}
-              className={`bg-card-bg border-border-glass hover:bg-card-bg/80 flex flex-col justify-center rounded-3xl border p-6 shadow-(--glass-shadow) backdrop-blur-xl transition-transform ${index === 2 ? 'col-span-2 md:col-span-1' : ''}`}
+              className={`bg-card-bg border-border-glass hover:bg-card-bg/80 shadow-glass-inner flex flex-col justify-center rounded-3xl border p-6 backdrop-blur-xl transition-transform ${index === 2 ? 'col-span-2 md:col-span-1' : ''}`}
             >
               <span className="text-accent text-2xl font-bold">
                 {box.value}

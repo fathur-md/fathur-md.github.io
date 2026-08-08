@@ -44,7 +44,7 @@ export default function RepoModal({
           WebkitBackfaceVisibility: 'hidden',
           transform: 'translateZ(0)',
         }}
-        className="border-border-glass bg-card-bg fixed inset-x-0 top-20 z-30 mx-auto flex h-[85vh] flex-col overflow-hidden rounded-3xl border p-6 shadow-(--glass-shadow) backdrop-blur-sm sm:inset-x-5 md:max-w-4xl"
+        className="border-border-glass bg-card-bg shadow-glass-inner fixed inset-x-0 top-20 z-30 mx-auto flex h-[85vh] flex-col overflow-hidden rounded-3xl border p-6 backdrop-blur-sm sm:inset-x-5 md:max-w-4xl"
       >
         <motion.button
           initial={{ opacity: 0, x: 10 }}

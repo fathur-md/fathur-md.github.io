@@ -13,7 +13,7 @@ export default function NotFound() {
 
       <Link
         href="/"
-        className="bg-accent inline-flex items-center gap-2 rounded-full px-8 py-2 text-sm font-semibold text-white shadow-(--glass-shadow) transition-transform hover:scale-105 active:scale-95"
+        className="bg-accent shadow-glass-inner inline-flex items-center gap-2 rounded-full px-8 py-2 text-sm font-semibold text-white transition-transform hover:scale-105 active:scale-95"
       >
         Kembali ke beranda
         <span
